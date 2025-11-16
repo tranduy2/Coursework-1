@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="#DDDDDD"
+    android:layout_margin="6dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView android:id="@+id/txtNote" android:textStyle="bold" android:textSize="16sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/txtTime" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/txtComment" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText android:id="@+id/etName2" android:hint="Name" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etLocation2" android:hint="Location" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etDate2" android:hint="Date" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etParking2" android:hint="Parking" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etLength2" android:hint="Length" android:layout_marginTop="10dp" android:inputType="numberDecimal" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etDifficulty2" android:hint="Difficulty" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etDescription2" android:hint="Description" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etOptional12" android:hint="Optional field 1" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etOptional22" android:hint="Optional field 2" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnUpdateHike"
+            android:text="Update"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnDeleteHike"
+            android:text="Delete"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnViewObs"
+            android:text="View Observations"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</ScrollView>

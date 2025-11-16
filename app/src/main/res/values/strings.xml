@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">M-Hike</string>
+
+    <!-- Main Menu -->
+    <string name="add_hike">Add Hike</string>
+    <string name="view_hikes">View Hikes</string>
+    <string name="search">Search</string>
+
+    <!-- Buttons -->
+    <string name="save">Save</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="add_observation">Add Observation</string>
+    <string name="view_observation">View Observations</string>
+    <string name="search_button">Search</string>
+
+</resources>
