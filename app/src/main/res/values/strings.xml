@@ -2,17 +2,41 @@
 <resources>
     <string name="app_name">M-Hike</string>
 
-    <!-- Main Menu -->
     <string name="add_hike">Add Hike</string>
     <string name="view_hikes">View Hikes</string>
     <string name="search">Search</string>
 
-    <!-- Buttons -->
+    <string name="lbl_hike_name">Hike Name *</string>
+    <string name="lbl_location">Location *</string>
+    <string name="lbl_date">Date of the Hike *</string>
+    <string name="lbl_parking">Parking Available *</string>
+    <string name="lbl_length">Hike Length (km) *</string>
+    <string name="lbl_difficulty">Difficulty Level *</string>
+    <string name="lbl_description">Description (Optional)</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+
+    <string name="hint_name">e.g., Mount Fansipan</string>
+    <string name="hint_location">e.g., Sapa, Vietnam</string>
+    <string name="hint_date">Pick a date</string>
+    <string name="hint_length">e.g., 10.5</string>
+    <string name="hint_description">Notes about the hike...</string>
+
     <string name="save">Save</string>
+    <string name="btn_add_hike">ADD HIKE</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="add_observation">Add Observation</string>
     <string name="view_observation">View Observations</string>
     <string name="search_button">Search</string>
+
+    <string name="msg_required">Please fill all required fields (*)</string>
+    <string name="msg_confirm_title">Confirm Hike Details</string>
+    <string name="msg_success">Hike added successfully!</string>
+    <string name="msg_error">Error saving hike</string>
 
 </resources>

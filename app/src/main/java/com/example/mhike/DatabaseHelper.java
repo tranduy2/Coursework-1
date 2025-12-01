@@ -7,16 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-
     public static final String DB_NAME = "mhike.db";
+    public static final int DB_VERSION = 3;
 
     public DatabaseHelper(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL("CREATE TABLE hikes (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "name TEXT NOT NULL," +
@@ -26,6 +25,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "length REAL NOT NULL," +
                 "difficulty TEXT NOT NULL," +
                 "description TEXT," +
+                "runner_name TEXT," +
+                "weather TEXT," +
+                "image_path TEXT," +
                 "optional1 TEXT," +
                 "optional2 TEXT)");
 
@@ -45,15 +47,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // ----------------- CRUD Hike ---------------------
-
     public boolean insertHike(String name, String location, String date, String parking,
                               double length, String difficulty, String description,
+                              String runnerName, String weather, String imagepath,
                               String optional1, String optional2) {
-
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
         cv.put("name", name);
         cv.put("location", location);
         cv.put("date", date);
@@ -61,10 +60,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put("length", length);
         cv.put("difficulty", difficulty);
         cv.put("description", description);
+        cv.put("runner_name", runnerName);
+        cv.put("weather", weather);
+        cv.put("image_path", imagepath);
         cv.put("optional1", optional1);
         cv.put("optional2", optional2);
-
         return db.insert("hikes", null, cv) != -1;
+    }
+
+    public boolean updateHike(int id, String name, String location, String date, String parking,
+                              double length, String difficulty, String description,
+                              String runnerName, String weather, String imagepath,
+                              String optional1, String optional2) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("name", name);
+        cv.put("location", location);
+        cv.put("date", date);
+        cv.put("parking", parking);
+        cv.put("length", length);
+        cv.put("difficulty", difficulty);
+        cv.put("description", description);
+        cv.put("runner_name", runnerName);
+        cv.put("weather", weather);
+        cv.put("image_path", imagepath);
+        cv.put("optional1", optional1);
+        cv.put("optional2", optional2);
+        return db.update("hikes", cv, "id=?", new String[]{String.valueOf(id)}) > 0;
     }
 
     public Cursor getAllHikes() {
@@ -77,27 +99,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM hikes WHERE id=?", new String[]{String.valueOf(id)});
     }
 
-    public boolean updateHike(int id, String name, String location, String date, String parking,
-                              double length, String difficulty, String description,
-                              String optional1, String optional2) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-
-        cv.put("name", name);
-        cv.put("location", location);
-        cv.put("date", date);
-        cv.put("parking", parking);
-        cv.put("length", length);
-        cv.put("difficulty", difficulty);
-        cv.put("description", description);
-        cv.put("optional1", optional1);
-        cv.put("optional2", optional2);
-
-        int rows = db.update("hikes", cv, "id=?", new String[]{String.valueOf(id)});
-        return rows > 0;
-    }
-
     public boolean deleteHike(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("hikes", "id=?", new String[]{String.valueOf(id)}) > 0;
@@ -106,19 +107,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void deleteAllHikes() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM hikes");
+        db.execSQL("DELETE FROM observations");
     }
-
-    // ----------------- CRUD Observation ---------------------
 
     public boolean insertObservation(int hikeId, String note, String time, String comment) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
         cv.put("hike_id", hikeId);
         cv.put("note", note);
         cv.put("time", time);
         cv.put("comment", comment);
-
         return db.insert("observations", null, cv) != -1;
     }
 
@@ -135,24 +133,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean updateObservation(int id, String note, String time, String comment) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-
         cv.put("note", note);
         cv.put("time", time);
         cv.put("comment", comment);
-
         return db.update("observations", cv, "id=?", new String[]{String.valueOf(id)}) > 0;
     }
 
-    // ----------------- SEARCH ---------------------
-
-    public Cursor searchHikes(String name, String location, String date) {
+    public Cursor searchHikes(String name, String location, String date, String lengthStr) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery(
-                "SELECT * FROM hikes WHERE name LIKE ? AND location LIKE ? AND date LIKE ?",
+                "SELECT * FROM hikes WHERE name LIKE ? AND location LIKE ? AND date LIKE ? AND length LIKE ?",
                 new String[]{
                         "%" + name + "%",
                         "%" + location + "%",
-                        "%" + date + "%"
+                        "%" + date + "%",
+                        "%" + lengthStr + "%"
                 }
         );
     }

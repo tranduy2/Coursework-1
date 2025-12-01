@@ -1,45 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="20dp"
+    android:paddingTop="80dp"
+    android:clipToPadding="false"
+    android:background="#FFFFFF">
 
     <LinearLayout
-        android:padding="20dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <EditText android:id="@+id/etName2" android:hint="Name" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etLocation2" android:hint="Location" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etDate2" android:hint="Date" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etParking2" android:hint="Parking" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etLength2" android:hint="Length" android:layout_marginTop="10dp" android:inputType="numberDecimal" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etDifficulty2" android:hint="Difficulty" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etDescription2" android:hint="Description" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etOptional12" android:hint="Optional field 1" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etOptional22" android:hint="Optional field 2" android:layout_marginTop="10dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Edit Hike Details"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/hike_primary_dark"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/btnUpdateHike"
-            android:text="Update"
-            android:layout_marginTop="20dp"
+        <TextView
+            android:text="Hike Photo"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/ivDetailImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="#EEEEEE"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnTakeNewPhoto"
+                android:text="New Photo 📷"
+                android:backgroundTint="@color/hike_sage"
+                android:textColor="#000000"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnSelectNewImage"
+                android:text="Gallery 🖼️"
+                android:backgroundTint="@color/hike_sage"
+                android:textColor="#000000"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView
+            android:text="Hike Name"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/etName2"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView android:text="Location"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/etLocation2"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Runner Name"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/etRunner2"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Weather Condition"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/etWeather2"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Date"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/etDate2"
+            android:focusable="false"
+            android:clickable="true"
+            android:padding="12dp"
+            android:drawableEnd="@android:drawable/ic_menu_my_calendar"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Parking Available"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RadioGroup
+            android:id="@+id/rgParking2"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rbYes2" android:text="Yes" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+            <RadioButton android:id="@+id/rbNo2" android:text="No" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+        <TextView
+            android:text="Length (km)"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/etLength2"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Difficulty"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <RadioGroup
+            android:id="@+id/rgDifficulty2"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/rbEasy2" android:text="Easy" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+            <RadioButton android:id="@+id/rbMedium2" android:text="Medium" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+            <RadioButton android:id="@+id/rbHard2" android:text="Hard" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+        <TextView
+            android:text="Description"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/etDescription2"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/btnDeleteHike"
-            android:text="Delete"
-            android:layout_marginTop="12dp"
+            android:id="@+id/btnUpdateHike"
+            android:text="Update Hike"
+            android:backgroundTint="@color/hike_olive"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="14dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/btnViewObs"
-            android:text="View Observations"
-            android:layout_marginTop="16dp"
+            android:text="Observations"
+            android:backgroundTint="@color/hike_cyan"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnDeleteHike"
+            android:text="Delete Hike"
+            android:backgroundTint="@color/delete_red"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
-
 </ScrollView>
