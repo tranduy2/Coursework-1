@@ -70,7 +70,7 @@ public class HikeListActivity extends AppCompatActivity {
                         c.getString(7),
                         c.getString(8),
                         c.getString(9),
-                        c.getString(10), // image path
+                        c.getString(10),
                         c.getString(11),
                         c.getString(12)
                 ));
