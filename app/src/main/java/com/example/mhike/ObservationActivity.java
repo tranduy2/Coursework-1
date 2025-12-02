@@ -33,14 +33,21 @@ public class ObservationActivity extends AppCompatActivity {
         listView = findViewById(R.id.obsListView);
         loadData();
         btnAdd.setOnClickListener(v -> addObservation());
-        listView.setOnItemClickListener((parent, view, position, id) -> showOptionsDialog(obsList.get(position)));
+        listView.setOnItemClickListener((parent,
+                                         view,
+                                         position,
+                                         id) -> showOptionsDialog(obsList.get(position)));
     }
 
     private void loadData() {
         obsList.clear();
         Cursor c = db.getObservations(hikeId);
         while (c.moveToNext()) {
-            obsList.add(new Observation(c.getInt(0), c.getInt(1), c.getString(2), c.getString(3), c.getString(4)));
+            obsList.add(new Observation(c.getInt(0),
+                    c.getInt(1),
+                    c.getString(2),
+                    c.getString(3),
+                    c.getString(4)));
         }
         adapter = new ObservationAdapter(this, obsList);
         listView.setAdapter(adapter);
@@ -51,14 +58,19 @@ public class ObservationActivity extends AppCompatActivity {
             Toast.makeText(this, "Note & Time required!", Toast.LENGTH_SHORT).show();
             return;
         }
-        boolean ok = db.insertObservation(hikeId, note.getText().toString(), time.getText().toString(), comment.getText().toString());
+        boolean ok = db.insertObservation(hikeId,
+                note.getText().toString(),
+                time.getText().toString(),
+                comment.getText().toString());
         Toast.makeText(this, ok ? "Added!" : "Fail", Toast.LENGTH_SHORT).show();
         loadData();
     }
 
     private void showOptionsDialog(Observation obs) {
-        new AlertDialog.Builder(this).setTitle("Select").setItems(new String[]{"Edit", "Delete"}, (dialog, which) -> {
-            if (which == 0) showEditDialog(obs); else deleteObservation(obs.getId());
+        new AlertDialog.Builder(this).setTitle("Select").setItems(new String[]{"Edit", "Delete"},
+                (dialog, which) -> {
+            if (which == 0) showEditDialog(obs);
+            else deleteObservation(obs.getId());
         }).show();
     }
 

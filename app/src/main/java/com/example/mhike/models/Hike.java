@@ -11,7 +11,7 @@ public class Hike {
     private String description;
     private String runnerName;
     private String weather;
-    private String image; // Đường dẫn ảnh
+    private String image;
     private String optional1;
     private String optional2;
 
