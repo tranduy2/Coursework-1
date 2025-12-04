@@ -38,7 +38,6 @@ public class AddHikeActivity extends AppCompatActivity {
     Uri photoURI;
 
     DatabaseHelper db;
-
     ActivityResultLauncher<String> mGetContent = registerForActivityResult(
             new ActivityResultContracts.GetContent(),
             uri -> {
@@ -57,7 +56,7 @@ public class AddHikeActivity extends AppCompatActivity {
                 }
             }
     );
-
+    //camera_request
     ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
             isGranted -> {
@@ -114,7 +113,8 @@ public class AddHikeActivity extends AppCompatActivity {
     }
 
     private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
+                Locale.getDefault()).format(new Date());
         File storageDir = getExternalCacheDir();
         return File.createTempFile("JPEG_" + timeStamp + "_", ".jpg", storageDir);
     }
